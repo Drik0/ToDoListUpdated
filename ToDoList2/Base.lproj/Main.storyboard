@@ -96,8 +96,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fq-zO-wI5">
                                 <rect key="frame" x="0.0" y="324" width="375" height="142"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task was added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBY-th-hqJ">
-                                        <rect key="frame" x="101.5" y="56.5" width="171.5" height="30"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task was added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBY-th-hqJ">
+                                        <rect key="frame" x="16" y="56.5" width="343" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -105,6 +105,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="XBY-th-hqJ" firstAttribute="leading" secondItem="4fq-zO-wI5" secondAttribute="leading" constant="16" id="Dek-dL-0hP"/>
+                                    <constraint firstAttribute="trailing" secondItem="XBY-th-hqJ" secondAttribute="trailing" constant="16" id="Sdq-TO-90k"/>
                                     <constraint firstItem="XBY-th-hqJ" firstAttribute="centerX" secondItem="4fq-zO-wI5" secondAttribute="centerX" id="h4E-gv-Rlq"/>
                                     <constraint firstItem="XBY-th-hqJ" firstAttribute="centerY" secondItem="4fq-zO-wI5" secondAttribute="centerY" id="qey-Ug-4MJ"/>
                                 </constraints>
