@@ -16,22 +16,29 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     var timer = Timer()
     
-    var countDown = 0
+    var countDown: Int = 0
+    
+    var listArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addedTask.delegate = self
-        
+        let savedObj = UserDefaults.standard.object(forKey: "ToDoList")
+        if let savedArray = savedObj as? NSArray {
+            listArray = savedArray as! [String] 
+        }
     }
 
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         if let task = addedTask.text {
-        confirmationLabel.text = "\(task) was added to the list"
-        confirmationLabel.isHidden = false
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SecondViewController.showMessage), userInfo: nil, repeats: true)
-        addedTask.text = ""
+            listArray.append(task)
+            UserDefaults.standard.set(listArray, forKey: "ToDoList")
+            confirmationLabel.text = "\(task) was added to the list"
+            confirmationLabel.isHidden = false
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SecondViewController.showMessage), userInfo: nil, repeats: true)
+            addedTask.text = ""
         }
     }
     
