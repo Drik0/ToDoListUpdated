@@ -38,13 +38,28 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         table.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            alert(task: listArray[indexPath.row])
+            listArray.remove(at: indexPath.row)
+            table.reloadData()
+            UserDefaults.standard.set(listArray, forKey: "ToDoList")
+        }
+    }
+    
     func getData() {
         let savedObj = UserDefaults.standard.object(forKey: "ToDoList")
         if let savedArray = savedObj as? NSArray {
             listArray = savedArray as! [String]
         }
     }
-        
-
+    
+    func alert(task: String) {
+        let alert = UIAlertController(title: "Success", message: "\(task) was successfully removed from the list!", preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            print("Success") }
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
