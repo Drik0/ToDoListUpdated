@@ -27,16 +27,20 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
+        if let task = addedTask.text {
+        confirmationLabel.text = "\(task) was added to the list"
+        confirmationLabel.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SecondViewController.showMessage), userInfo: nil, repeats: true)
         addedTask.text = ""
+        }
     }
     
     @objc func showMessage() {
-        confirmationLabel.isHidden = false
         countDown += 1
         if countDown == 5 {
             confirmationLabel.isHidden = true
             timer.invalidate()
+            countDown = 0
         }
     }
     
