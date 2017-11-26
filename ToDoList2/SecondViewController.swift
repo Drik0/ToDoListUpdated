@@ -8,20 +8,45 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var addedTask: UITextField!
     
     @IBOutlet weak var confirmationLabel: UILabel!
     
+    var timer = Timer()
+    
+    var countDown = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        addedTask.delegate = self
+        
     }
 
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SecondViewController.showMessage), userInfo: nil, repeats: true)
+        addedTask.text = ""
     }
     
+    @objc func showMessage() {
+        confirmationLabel.isHidden = false
+        countDown += 1
+        if countDown == 5 {
+            confirmationLabel.isHidden = true
+            timer.invalidate()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
