@@ -43,12 +43,15 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="To do list" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="table" destination="Ec4-B4-J25" id="0Zv-Q2-Xea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Add an item-->
+        <!--Add a task-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="ToDoList2" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,6 +116,9 @@
                                         <rect key="frame" x="160" y="50.5" width="54" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveBtnPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="YyN-aF-jsn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -143,7 +149,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add an item" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Add a task" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="addedTask" destination="XtX-sg-09X" id="0uO-hg-Pvb"/>
+                        <outlet property="confirmationLabel" destination="XBY-th-hqJ" id="nvX-DC-P2a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
